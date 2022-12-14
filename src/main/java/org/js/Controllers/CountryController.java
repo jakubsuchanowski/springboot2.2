@@ -46,15 +46,15 @@ public class CountryController {
         return odp.toString();
     }
 
-    @RequestMapping("/kraje/area/{areaMin}/{areaMax}")
+    @RequestMapping("/kraje/area/{continent}/{areaMin}/{areaMax}")
     @ResponseBody
-    public String area(@PathVariable String areaMin, @PathVariable String areaMax){
+    public String area(@PathVariable String continent, @PathVariable String areaMin, @PathVariable String areaMax){
         StringBuilder odp = new StringBuilder();
 
         Double min = Double.parseDouble(areaMin);
         Double max = Double.parseDouble(areaMax);
 
-        for (Country i : repo.findBySurfaceAreaBetween(min,max)){
+        for (Country i : repo.findByContinentAndSurfaceAreaBetween(continent,min,max)){
             odp.append(i).append("<br>");
         }
         return odp.toString();

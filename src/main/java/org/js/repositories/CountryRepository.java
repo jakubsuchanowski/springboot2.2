@@ -13,6 +13,6 @@ public interface CountryRepository extends JpaRepository<Country, Long> {
     List<Country> findAll();
     List<Country> findCountryByContinent(String continent);
     List<Country> findByPopulationBetween(Integer minPopulation, Integer maxPopulation);
-    List<Country> findBySurfaceAreaBetween(Double minArea, Double maxArea);
+    List<Country> findByContinentAndSurfaceAreaBetween(String continent, Double minArea, Double maxArea);
 
 }
